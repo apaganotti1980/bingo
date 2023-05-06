@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Sorteio da Mega Sena</title>
+</head>
+<body>
+  <h1>Sorteio da Mega Sena</h1>
+  <p>Clique no botão abaixo para gerar seus números baseados nos mais improváveis:</p>
+  <button onclick="gerarNumeros()">Gerar números</button>
+  <br>
+  <br>
+  <p id="numerosGerados"></p>
+  <script>
+    function gerarNumeros() {
+      // Array com os números mais improváveis de acordo com todos os concursos realizados até o momento
+      var numeros = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60];
+      
+      // Embaralha os números
+      numeros = shuffle(numeros);
+      
+      // Seleciona os primeiros 6 números do array
+      numeros = numeros.slice(0, 6);
+      
+      // Ordena os números em ordem crescente
+      numeros.sort(function(a, b) { return a - b; });
+      
+      // Exibe os números gerados na página
+      document.getElementById("numerosGerados").innerHTML = "Os números gerados foram: " + numeros.join(", ");
+    }
+    
+    // Função para embaralhar um array
+    function shuffle(array) {
+      var currentIndex = array.length, temporaryValue, randomIndex;
+
+      // Enquanto houver elementos para embaralhar...
+      while (0 !== currentIndex) {
+
+        // Seleciona um elemento não embaralhado...
+        randomIndex = Math.floor(Math.random() * currentIndex);
+        currentIndex -= 1;
+
+        // E o troca com o elemento atual
+        temporaryValue = array[currentIndex];
+        array[currentIndex] = array[randomIndex];
+        array[randomIndex] = temporaryValue;
+      }
+
+      return array;
+    }
+  </script>
+</body>
+</html>
