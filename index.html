@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Sorteio de Números de Bingo</title>
+    <script>
+      function sortearNumero() {
+        var numeroSorteado = Math.floor(Math.random() * 75) + 1; // sorteia um número de 1 a 75
+        document.getElementById("numero-sorteado").innerHTML = numeroSorteado;
+      }
+    </script>
+  </head>
+  <body>
+    <h1>Sorteio de Números de Bingo</h1>
+    <button onclick="sortearNumero()">Sortear Número</button>
+    <p>Número sorteado: <span id="numero-sorteado"></span></p>
+  </body>
+</html>
